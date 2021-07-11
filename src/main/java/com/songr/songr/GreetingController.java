@@ -24,10 +24,20 @@ public class GreetingController {
 	}
 
 
-	@ResponseBody
-    @GetMapping("/album")
-    public String getAlbum(){
-        ArrayList<T> album = new ArrayList<T>();
-        album.add()
-        return ;
+    @GetMapping("/albums")
+    public String getAlbum(Model model){
+        ArrayList<Album> album = new ArrayList<>();
+
+        var album1= new Album("title1","artist1",2,5,"url1");
+        var album2= new Album("title2","artist2",2,5,"url2");
+        var album3= new Album("title3","artist3",2,5,"url3");
+
+        album.add(album1);
+        album.add(album2);
+        album.add(album3);
+
+        model.addAttribute("album",album);
+
+        return "album";
+    }
 }
